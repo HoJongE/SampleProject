@@ -11,6 +11,7 @@ import Foundation
 protocol WeatherService: AnyObject {
     func weatherOfCity(_ cityName: String) -> Observable<WeatherDAO>
 }
+
 final class OpenWeatherService {
     static let shared: WeatherService = OpenWeatherService()
 }

@@ -12,7 +12,7 @@ import RxSwift
 final class ViewController: UIViewController {
 
     private lazy var testView: TestView = TestView()
-    private let viewModel: TestViewModel = TestViewModel(weatherService: OpenWeatherService.shared)
+    private let viewModel: TestViewModel = TestViewModel(requestWeatherUsecase: RealRequestWeatherUsecase())
     private let disposeBag: DisposeBag = DisposeBag()
 
     override func viewDidLoad() {
@@ -29,12 +29,14 @@ final class ViewController: UIViewController {
 private extension ViewController {
     func setObserver() {
 
-        testView.textField.rx
-            .controlEvent(.editingDidEnd)
+        testView.button
+            .rx
+            .tap
             .compactMap { [weak self] in
-                self?.testView.textField.text}
-            .subscribe(onNext: { [weak self] string in
-                self?.viewModel.requestWeather(string)
+                self?.testView.textField.text
+            }
+            .subscribe(onNext: { [weak self] cityName in
+                self?.viewModel.requestWeather(cityName)
             })
             .disposed(by: disposeBag)
 

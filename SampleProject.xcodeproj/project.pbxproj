@@ -30,6 +30,7 @@
 		0024BC7628ED77AD00DE266D /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 0024BC7528ED77AD00DE266D /* RxTest */; };
 		0024BC7828ED79E100DE266D /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0024BC7728ED79E100DE266D /* TestView.swift */; };
 		0024BC7B28EDB55D00DE266D /* WeatherDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0024BC7A28EDB55D00DE266D /* WeatherDAO.swift */; };
+		00725F3528EE9FA7008A3AA0 /* RequestWeatherUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00725F3428EE9FA7008A3AA0 /* RequestWeatherUsecase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		0024BC7028ED74F100DE266D /* OpenWeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherService.swift; sourceTree = "<group>"; };
 		0024BC7728ED79E100DE266D /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		0024BC7A28EDB55D00DE266D /* WeatherDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDAO.swift; sourceTree = "<group>"; };
+		00725F3428EE9FA7008A3AA0 /* RequestWeatherUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestWeatherUsecase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 		0024BC2528ED16B000DE266D /* SampleProject */ = {
 			isa = PBXGroup;
 			children = (
+				00725F3328EE9F9C008A3AA0 /* Usecase */,
 				0024BC7928EDB55600DE266D /* Model */,
 				0024BC6728ED626500DE266D /* Const */,
 				0024BC6628ED619600DE266D /* Repository */,
@@ -234,6 +237,14 @@
 				0024BC7A28EDB55D00DE266D /* WeatherDAO.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		00725F3328EE9F9C008A3AA0 /* Usecase */ = {
+			isa = PBXGroup;
+			children = (
+				00725F3428EE9FA7008A3AA0 /* RequestWeatherUsecase.swift */,
+			);
+			path = Usecase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -390,6 +401,7 @@
 				0024BC2928ED16B000DE266D /* SceneDelegate.swift in Sources */,
 				0024BC6928ED626D00DE266D /* APIKey.swift in Sources */,
 				0024BC6B28ED630C00DE266D /* APICall.swift in Sources */,
+				00725F3528EE9FA7008A3AA0 /* RequestWeatherUsecase.swift in Sources */,
 				0024BC6528ED615700DE266D /* UIKit+SwiftUI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

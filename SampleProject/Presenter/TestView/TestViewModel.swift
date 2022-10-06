@@ -11,16 +11,17 @@ import Foundation
 
 final class TestViewModel {
 
-    private let weatherService: WeatherService
+    private let requestWeatherUsecase: RequestWeatherUsecase
+
     let weathers: PublishRelay<WeatherDAO> = .init()
     private let disposeBag: DisposeBag = .init()
 
-    init(weatherService: WeatherService) {
-        self.weatherService = weatherService
+    init(requestWeatherUsecase: RequestWeatherUsecase) {
+        self.requestWeatherUsecase = requestWeatherUsecase
     }
 
     func requestWeather(_ cityName: String) {
-        weatherService.weatherOfCity(cityName)
+        requestWeatherUsecase.requestWeather(of: cityName)
             .subscribe(onNext: { weather in
                 self.weathers.accept(weather)
             })

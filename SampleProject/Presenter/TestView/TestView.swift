@@ -15,7 +15,6 @@ class TestView: UIView {
         textField.borderStyle = .roundedRect
         textField.textColor = .black
         textField.returnKeyType = .done
-        textField.actions(forTarget: self, forControlEvent: .editingDidEnd)
         return textField
     }()
 
@@ -31,6 +30,13 @@ class TestView: UIView {
         label.text = "설명: "
         label.font = .preferredFont(forTextStyle: .title3)
         return label
+    }()
+
+    private (set) lazy var button: UIButton = {
+        var configuration = UIButton.Configuration.tinted()
+        configuration.title = "날씨 요청"
+        let button = UIButton(configuration: configuration)
+        return button
     }()
 
     override init(frame: CGRect) {
@@ -52,9 +58,13 @@ private extension TestView {
         addSubview(weather)
         addSubview(weatherDescription)
         addSubview(textField)
+        addSubview(button)
+
         textField.translatesAutoresizingMaskIntoConstraints = false
         weather.translatesAutoresizingMaskIntoConstraints = false
         weatherDescription.translatesAutoresizingMaskIntoConstraints = false
+        button.translatesAutoresizingMaskIntoConstraints = false
+
         NSLayoutConstraint.activate([
             weather.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 48),
             weather.centerXAnchor.constraint(equalTo: centerXAnchor)
@@ -67,6 +77,11 @@ private extension TestView {
             textField.centerXAnchor.constraint(equalTo: centerXAnchor),
             textField.centerYAnchor.constraint(equalTo: centerYAnchor),
             textField.widthAnchor.constraint(equalToConstant: 200)
+        ])
+
+        NSLayoutConstraint.activate([
+            button.centerXAnchor.constraint(equalTo: centerXAnchor),
+            button.bottomAnchor.constraint(equalTo: textField.topAnchor, constant: -32)
         ])
     }
 }
