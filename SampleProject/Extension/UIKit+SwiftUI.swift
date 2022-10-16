@@ -5,6 +5,7 @@
 //  Created by JongHo Park on 2022/10/05.
 //
 
+// ViewController 혹은 UIView 를 SwiftUI Preview 에서 사용하기 위해 추가한 유틸리티 코드임
 #if DEBUG
 import UIKit
 import SwiftUI

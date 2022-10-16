@@ -20,14 +20,12 @@ class TestView: UIView {
 
     private (set) lazy var weather: UILabel = {
         let label = UILabel(frame: .zero)
-        label.text = "날씨: "
         label.font = .preferredFont(forTextStyle: .largeTitle)
         return label
     }()
 
     private (set) lazy var weatherDescription: UILabel = {
         let label = UILabel(frame: .zero)
-        label.text = "설명: "
         label.font = .preferredFont(forTextStyle: .title3)
         return label
     }()

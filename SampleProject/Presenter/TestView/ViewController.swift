@@ -11,6 +11,7 @@ import RxSwift
 
 final class ViewController: UIViewController {
 
+    // ViewController 는 View 와 ViewModel 에 대한 의존성을 가짐
     private lazy var testView: TestView = TestView()
     private let viewModel: TestViewModel = TestViewModel(requestWeatherUsecase: RealRequestWeatherUsecase())
     private let disposeBag: DisposeBag = DisposeBag()
@@ -27,6 +28,8 @@ final class ViewController: UIViewController {
 }
 
 private extension ViewController {
+
+    // ViewModel 의 data 들에 대한 binding 을 설정
     func setObserver() {
 
         testView.button
@@ -40,23 +43,17 @@ private extension ViewController {
             })
             .disposed(by: disposeBag)
 
-        let weather = viewModel.weathers
-            .asDriver(onErrorJustReturn: WeatherDAO(id: 0, main: "", description: ""))
-
-        weather
-            .map {
-                "날씨: " + $0.main
-            }
-            .drive(testView.weather.rx.text)
+        // 뷰모델 날씨 데이터의 날씨 이름을 관련 textField 에 연결
+        viewModel.weathers
+            .map(\.weatherName)
+            .bind(to: testView.weather.rx.text)
             .disposed(by: disposeBag)
 
-        weather
-            .map {
-                "설명: " + $0.description
-            }
-            .drive(testView.weatherDescription.rx.text)
+        // 뷰모델 날씨 데이터의 날씨 설명을 관련 textField 에 연결
+        viewModel.weathers
+            .map(\.weatherDescription)
+            .bind(to: testView.weatherDescription.rx.text)
             .disposed(by: disposeBag)
-
             
     }
 }

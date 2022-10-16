@@ -8,6 +8,7 @@
 import RxSwift
 import Foundation
 
+// API 를 추상화한 레이어임 (어떤 API 에 의존적인지를 숨김)
 protocol WeatherService: AnyObject {
     func weatherOfCity(_ cityName: String) -> Observable<WeatherDAO>
 }
