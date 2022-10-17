@@ -43,6 +43,7 @@ extension Reactive where Base: URLSession {
         }
     }
 
+    // 기존 response, data 형태로 반환되던 Observable 을 그대로 받아서 data 만 내보내도록 변환함
     func data(_ request: URLRequest) -> Observable<Data> {
         return response(request)
             .map { (response, data) -> Data in
@@ -53,6 +54,7 @@ extension Reactive where Base: URLSession {
             }
     }
 
+    // data 옵저버블을 그대로 받아서, json Dictionary 형태로 변환함
     func json(_ request: URLRequest) -> Observable<[String: Any]> {
         return data(request)
             .map { data in
@@ -60,6 +62,7 @@ extension Reactive where Base: URLSession {
             }
     }
 
+    // data Observable 을 그대로 받아서, Decodable 프로토콜을 채택한 타입으로 변환함
     func decodable<T: Decodable>(_ request: URLRequest, type: T.Type) -> Observable<T> {
         return data(request)
             .do(onNext: {

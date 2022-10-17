@@ -7,6 +7,7 @@
 
 import UIKit
 
+// User Interace
 class TestView: UIView {
 
     private (set) lazy var textField: UITextField = {

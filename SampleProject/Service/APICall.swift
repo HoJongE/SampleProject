@@ -25,6 +25,8 @@ protocol APICall {
     var path: String { get }
 }
 
+// API Call 프로토콜의 기본 구현 코드
+// API Call 프로토콜을 채택하는 모든 구현타입이 사용 가능한 코드임
 extension APICall {
 
     private var url: URL? {

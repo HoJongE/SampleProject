@@ -13,12 +13,12 @@ protocol WeatherService: AnyObject {
     func weatherOfCity(_ cityName: String) -> Observable<WeatherDAO>
 }
 
+// protocol 구현체
 final class OpenWeatherService {
     static let shared: WeatherService = OpenWeatherService()
 }
 
 extension OpenWeatherService: WeatherService {
-
     func weatherOfCity(_ cityName: String) -> Observable<WeatherDAO> {
         struct WeatherJSON: Codable {
             let weather: [WeatherDAO]

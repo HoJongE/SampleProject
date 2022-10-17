@@ -54,7 +54,6 @@ private extension ViewController {
             .map(\.weatherDescription)
             .bind(to: testView.weatherDescription.rx.text)
             .disposed(by: disposeBag)
-            
     }
 }
 

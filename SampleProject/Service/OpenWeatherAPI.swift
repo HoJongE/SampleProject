@@ -7,12 +7,14 @@
 
 import Foundation
 
+// API Call 프로토콜을 채택하는 Weahter API 를 선언
 enum OpenWeatherAPI {
     case cityName(cityName: String)
 }
 
 extension OpenWeatherAPI: APICall {
 
+    // OpenWeatherAPI enum 의 케이스마다 어떤 HTTP 메소드를 가지고 있는지?
     var method: HTTPMethod {
         switch self {
         case .cityName:
@@ -20,6 +22,7 @@ extension OpenWeatherAPI: APICall {
         }
     }
 
+    // OpenWeatherAPI enum 의 케이스마다 어떤 파라미터를 가지고 있는지?
     var parameters: Parameters {
         switch self {
         case .cityName(cityName: let cityName):

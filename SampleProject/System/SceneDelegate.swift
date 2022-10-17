@@ -7,6 +7,7 @@
 
 import UIKit
 
+// 건든거 없음
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
